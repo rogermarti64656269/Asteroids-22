@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     public float speed = 10;
     public float rotationSpeed = 10;
+    public GameObject bala;
+    public GameObject boquilla;
     // Start is called before the first frame update
 
 
@@ -35,5 +37,16 @@ public class PlayerMovement : MonoBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
         transform.eulerAngles = transform.eulerAngles + new Vector3(0, 0, horizontal * rotationSpeed * Time.deltaTime);
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            GameObject temp = Instantiate(bala, boquilla.transform.position, transform.rotation);
+            Destroy(temp, 2.5f);
+        }
+    }
+
+    public void Muerte()
+    {
+        //Destroy(gameObject);
     }
 }
