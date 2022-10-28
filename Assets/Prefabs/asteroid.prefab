@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed_min: 100
   speed_max: 200
+  manager: {fileID: 0}
 --- !u!114 &800313926466623830
 MonoBehaviour:
   m_ObjectHideFlags: 0

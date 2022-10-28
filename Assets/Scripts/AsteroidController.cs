@@ -17,13 +17,16 @@ public class AsteroidController : MonoBehaviour
         direccion = direccion * Random.Range(speed_min, speed_max);
         Debug.Log(direccion);
         rb.AddForce(direccion);
+        manager.asteroides += 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
+
+ 
 
     public void Muerte()
     {
@@ -37,8 +40,9 @@ public class AsteroidController : MonoBehaviour
             temp2.GetComponent<AsteroidController>().manager = manager;
             temp2.transform.localScale = transform.localScale * 0.5f;
         }
-       
 
+        GameManager.instance.puntuacion += 100;
+        manager.asteroides -= 1;
         Destroy(gameObject);
     }
 

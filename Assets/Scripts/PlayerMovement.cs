@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float vertical = Input.GetAxis("Vertical");
+        float vertical = Input.GetAxisRaw("Vertical");
         if (vertical > 0)
         {
             rb.AddForce(transform.up * vertical * speed * Time.deltaTime);
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("Impulsing", false);
         }
 
-        float horizontal = Input.GetAxis("Horizontal");
+        float horizontal = Input.GetAxisRaw("Horizontal");
         transform.eulerAngles = transform.eulerAngles + new Vector3(0, 0, horizontal * rotationSpeed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump"))
@@ -47,6 +47,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Muerte()
     {
-        //Destroy(gameObject);
+        GameManager.instance.vidas -= 1;
+        transform.position = new Vector3(0, 0, 0);
+        rb.velocity = new Vector2(0, 0);
+        if (GameManager.instance.vidas <= 0)
+        {
+            Destroy(gameObject);
+            Time.timeScale = 0;
+        }
     }
 }
