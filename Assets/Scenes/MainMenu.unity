@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 1519194695}
   - component: {fileID: 1519194694}
   m_Layer: 0
-  m_Name: fV_pPvxY_400x400
+  m_Name: fondo negro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
