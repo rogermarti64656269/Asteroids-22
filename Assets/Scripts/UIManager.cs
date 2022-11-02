@@ -11,12 +11,14 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         tiempo.text = Time.time.ToString("00.00");
+        puntuacion.text = GameManager.instance.puntuacion.ToString("000000");
+        vidas.text = GameManager.instance.vidas.ToString("00");
     }
 }

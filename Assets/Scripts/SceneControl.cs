@@ -18,6 +18,7 @@ public class SceneControl : MonoBehaviour
         if (playerShip == null)
         {
             gameOver.SetActive(true);
+
         }
     }
 }
